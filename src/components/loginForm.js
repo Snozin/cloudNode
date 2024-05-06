@@ -1,3 +1,7 @@
+import i18n from '../utils/useTranslate'
+
+
+console.log('LANG: ', i18n.locale)
 const $ = kendo.jQuery
 
 const LoginForm = () => {
@@ -129,7 +133,7 @@ const LoginForm = () => {
 
   const btnText = $('<span>')
   btnText.attr('id', 'login.lblsend')
-  btnText.text('Enviar')
+  btnText.text(`${i18n.t('login.send')}`)
   sendButton.append(btnText)
 
   const footer = $('<div>')

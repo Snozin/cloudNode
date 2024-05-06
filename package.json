@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@progress/kendo-ui": "^2024.1.319",
+    "i18n-js": "^4.4.3",
     "jquery": "^3.7.1"
   },
   "devDependencies": {
