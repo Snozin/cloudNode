@@ -3,20 +3,16 @@ import { translations } from '../locales/translations'
 import useStorage from './useStorage'
 
 const i18n = () => {
-  const lang = new I18n(translations)
-  // lang.defaultLocale = 'en'
-  const current = useStorage.get('lang')
+  const ref = new I18n(translations)
+  const lang = useStorage.get('lang')
 
-  console.log('current: ', current)
-  if (!current) {
-    // lang.defaultLocale = 'es'
-    lang.locale = 'es'
+  if (!lang) {
+    ref.locale = 'es'
   } else {
-    // lang.defaultLocale = current
-    lang.locale = current
+    ref.locale = lang
   }
 
-  return lang
+  return ref
 }
 
 export default i18n()

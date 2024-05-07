@@ -1,42 +1,36 @@
+import { loginFetch, refreshFetch } from '../utils/useFetch'
 import useStorage from '../utils/useStorage'
 
-// const vm = {
-//   _vm: kendo.observable({
-//     currentLang: useStorage.get('lang'),
-//     status: -2, //status of load data (-2 = nothing, -1 = error, 0 = Loading, 1 = login success)
-//   }),
+class LoginViewModel {
+  _vm = kendo.observable({
+    currentLang: useStorage.get('lang'),
+    status: -2, //status of load data (-2 = nothing, -1 = error, 0 = Loading, 1 = login success)
+  })
 
-//   init() {
-//     if (!this._vm.get('currentLang')) {
-//       const actual = 'en'
-//       useStorage.set('lang', actual)
-//       this._vm.set('currentLang', actual)
-//     }
-//   },
-//   getVM() {
-//     return this._vm
-//     // console.log('Variables: ', import.meta.env.VITE_SERVER_URL)
-//     // console.log('Variables: ', import.meta.env.VITE_ENDPOINT_LOGIN)
-//     // console.log('Variables: ', this._vmLoginMobile)
-//   },
-// }
+  constructor() {
+    if (!this._vm.get('currentLang')) {
+      const lang = 'es'
+      useStorage.set('lang', lang)
+      this._vm.set('currentLang', lang)
+    }
+  }
 
-// export { vm as LoginVM }
+  getRef() {
+    return this._vm
+  }
 
-const _vm = kendo.observable({
-  currentLang: useStorage.get('lang'),
-})
+  login(credentials) {
+    loginFetch(credentials)
+  }
 
-const loadVM = () => {
-  if (!_vm.get('currentLang')) {
-    const actual = 'es'
-    useStorage.set('lang', actual)
-    _vm.set('currentLang', actual)
+  refreshToken(organization) {
+    const url = import.meta.env.VITE_ENDPOINT_REFRESH
+    const resp = refreshFetch({ url, payload: organization })
+
+    return resp ? true : false
   }
 }
 
-const getVM = () => {
-  return _vm
-}
+const LoginVM = new LoginViewModel()
 
-export { loadVM, getVM }
+export { LoginVM }

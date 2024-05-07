@@ -1,7 +1,5 @@
 import i18n from '../utils/useTranslate'
 
-
-console.log('LANG: ', i18n.locale)
 const $ = kendo.jQuery
 
 const LoginForm = () => {
@@ -63,7 +61,7 @@ const LoginForm = () => {
 
   const userInput = $('<input>')
   userInput.attr('id', 'loginEmail')
-  userInput.attr('placeholder', 'Usuario')
+  userInput.attr('placeholder', `${i18n.t('login.user')}`)
   userInput.addClass('form-control')
   userGroup.append(userInput)
 
@@ -86,7 +84,7 @@ const LoginForm = () => {
   const passInput = $('<input>')
   passInput.attr('id', 'loginPass')
   passInput.attr('type', 'password')
-  passInput.attr('placeholder', 'Contraseña')
+  passInput.attr('placeholder', `${i18n.t('login.pass')}`)
   passInput.addClass('form-control ')
   passGroup.append(passInput)
 
@@ -125,16 +123,13 @@ const LoginForm = () => {
   formGroup.append(sendGroup)
 
   const sendButton = $('<button>')
-  sendButton.attr('id', 'enviar')
+  sendButton.attr('id', 'login-btn')
+  sendButton.attr('type', 'submit')
+  sendButton.text(`${i18n.t('login.send')}`)
   sendButton.addClass(
     'form-control btn col-lg-12 col-xs-12 float-left loginbtn'
   )
   sendGroup.append(sendButton)
-
-  const btnText = $('<span>')
-  btnText.attr('id', 'login.lblsend')
-  btnText.text(`${i18n.t('login.send')}`)
-  sendButton.append(btnText)
 
   const footer = $('<div>')
   footer.addClass('card-footer')

@@ -1,0 +1,50 @@
+#app {
+  height: 100vh;
+  background-image: url(../assets/images/login-background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#loginSection {
+  margin-top: -20%;
+}
+
+#login {
+  max-width: 100%;
+}
+
+.card-header,
+.card-footer {
+  background: none;
+}
+
+.card-header h3 {
+  color: white
+}
+
+.card-footer a {
+  color: #212529;
+}
+
+.card-footer a:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.loginbtn {
+  background-color: #020542;
+  color: white;
+}
+
+.loginbtn:hover {
+  opacity: 0.85;
+  color: white;
+}
+.loginbtn:disabled.btn {
+  opacity: 0.7;
+  background-color: #020542;
+  /* color: white; */
+}
