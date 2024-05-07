@@ -16,7 +16,6 @@ class LoginController {
   VMLoginRef = LoginVM.getRef()
 
   constructor() {
-    console.log('VM ref: ', this.VMLoginRef)
     $('#app').append(LoginForm)
 
     const setLanguage = (newLang) => {
@@ -74,7 +73,7 @@ class LoginController {
     const form = $('#loginForm')
     form.on('submit', (e) => {
       e.preventDefault()
-      $('body').prepend(Spinner)
+      // $('body').prepend(Spinner)
       // $('#spinner').remove()
       const user = $('#loginEmail').val()
       const password = $('#loginPass').val()
@@ -84,11 +83,11 @@ class LoginController {
       // LoginVM.login(credentials)
 
       console.log('Envío!')
-      this._state.set('loginDone', !this._state.get('loginDone'))
+      this._state.set('loginDone', true)
     })
   }
 }
 
 // export { loginController }
-const loginController = new LoginController()
-export { loginController }
+// const loginController = new LoginController()
+export { LoginController }
