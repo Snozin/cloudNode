@@ -1,5 +1,5 @@
 import { I18n } from 'i18n-js'
-import { translations } from '../locales/translations'
+import { translations } from '../assets/locales/translations'
 import useStorage from './useStorage'
 
 const i18n = () => {

@@ -15,7 +15,8 @@ class LoginController {
   })
   VMLoginRef = LoginVM.getRef()
 
-  constructor() {
+  constructor(router) {
+    this.router = router
     $('#app').append(LoginForm)
 
     const setLanguage = (newLang) => {
@@ -45,6 +46,7 @@ class LoginController {
       $('#login-btn').text(`${i18n.t('login.send')}`)
       $('#loginEmail').attr('placeholder', `${i18n.t('login.user')}`)
       $('#loginPass').attr('placeholder', `${i18n.t('login.pass')}`)
+      $('#remember-link').text(`${i18n.t('login.recover')}`)
     })
 
     //TODO Delete at deploy
@@ -55,7 +57,7 @@ class LoginController {
     }
 
     this.hasToken()
-    this.submitForm()
+    this.formHandler()
     return this._state
   }
 
@@ -69,8 +71,9 @@ class LoginController {
     }
   }
 
-  submitForm() {
+  formHandler() {
     const form = $('#loginForm')
+
     form.on('submit', (e) => {
       e.preventDefault()
       // $('body').prepend(Spinner)
@@ -82,8 +85,13 @@ class LoginController {
       const credentials = { user, password }
       LoginVM.login(credentials)
 
+      // this.router.navigate('/remember')
       console.log('Envío!')
       this._state.set('loginDone', true)
+    })
+
+    $('#remember-link').on('click', () => {
+      this.router.navigate('/remember')
     })
   }
 }

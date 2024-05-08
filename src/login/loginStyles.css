@@ -48,3 +48,7 @@
   background-color: #020542;
   /* color: white; */
 }
+
+#remember-link {
+  cursor: pointer;
+}

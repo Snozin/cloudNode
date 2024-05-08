@@ -136,7 +136,6 @@ const LoginForm = () => {
   sectionInner.append(footer)
 
   const footerLink = $('<a>')
-  footerLink.attr('href', '#')
   footerLink.addClass('float-right')
   footer.append(footerLink)
 
@@ -144,8 +143,9 @@ const LoginForm = () => {
   footerLink.append(footerLinkText)
 
   const footerLinkTextInner = $('<span>')
-  footerLinkTextInner.attr('id', 'login.remeberpassword')
-  footerLinkTextInner.text('¿Has olvidado la contraseña?')
+  footerLinkTextInner.attr('id', 'remember-link')
+  footerLinkTextInner.text(`${i18n.t('login.recover')}`)
+  // footerLinkTextInner.text(`${i18n.t('login.send')}`)
   footerLinkText.append(footerLinkTextInner)
 
   return loginSection

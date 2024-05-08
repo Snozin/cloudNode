@@ -4,15 +4,21 @@ export const translations = {
       user: 'User',
       pass: 'Password',
       send: 'Send',
+      recover: 'Forgot password?',
     },
-    text: 'example text',
+    recover: {
+      title: 'Remember password',
+    },
   },
   es: {
     login: {
       user: 'Usuario',
       pass: 'Contraseña',
       send: 'Enviar',
+      recover: '¿Has olvidado la contraseña?',
     },
-    text: 'texto de prueba',
+    recover: {
+      title: 'Recuperar contraseña',
+    },
   },
 }
