@@ -50,8 +50,8 @@ class LoginController {
     //TODO Delete at deploy
     const mode = import.meta.env.MODE
     if (mode === 'development') {
-      // $('#loginEmail').val('EQADM')
-      // $('#loginPass').val('12345678')
+      $('#loginEmail').val('EQADM')
+      $('#loginPass').val('12345678')
     }
 
     this.hasToken()
@@ -80,7 +80,7 @@ class LoginController {
       $('#login-btn').attr('disabled', true)
 
       const credentials = { user, password }
-      // LoginVM.login(credentials)
+      LoginVM.login(credentials)
 
       console.log('Envío!')
       this._state.set('loginDone', true)
@@ -88,6 +88,6 @@ class LoginController {
   }
 }
 
-// export { loginController }
-// const loginController = new LoginController()
+// const loginPage = new LoginController()
+// export { loginPage }
 export { LoginController }
