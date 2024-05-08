@@ -91,7 +91,7 @@ class LoginController {
     })
 
     $('#remember-link').on('click', () => {
-      this.router.navigate('/remember')
+      this.router.navigate('/recover')
     })
   }
 }

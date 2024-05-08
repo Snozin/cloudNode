@@ -8,6 +8,13 @@ export const translations = {
     },
     recover: {
       title: 'Remember password',
+      name: 'Name',
+      surname: 'Surname',
+      email: 'Email',
+      doc: 'Document number',
+      captcha: 'Enter the captcha',
+      submit: 'Submit',
+      back: 'Back to Login',
     },
   },
   es: {
@@ -19,6 +26,13 @@ export const translations = {
     },
     recover: {
       title: 'Recuperar contraseña',
+      name: 'Nombre',
+      surname: 'Apellido',
+      email: 'Email',
+      doc: 'Documento de identidad',
+      captcha: 'Introduce el captcha',
+      submit: 'Solicitar',
+      back: 'Volver a Login',
     },
   },
 }

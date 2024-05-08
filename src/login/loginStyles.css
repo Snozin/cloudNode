@@ -1,4 +1,4 @@
-#app {
+#loginSection {
   height: 100vh;
   background-image: url(../assets/images/login-background.webp);
   background-repeat: no-repeat;
@@ -8,11 +8,8 @@
   justify-content: center;
 }
 
-#loginSection {
-  margin-top: -20%;
-}
-
 #login {
+  margin-top: -20%;
   max-width: 100%;
 }
 

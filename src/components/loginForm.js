@@ -12,7 +12,7 @@ const LoginForm = () => {
   loginSection.append(loginInner)
 
   const sectionInner = $('<div>')
-  sectionInner.addClass('col-sm-8 col-lg-5')
+  sectionInner.addClass('col-sm-6 col-lg-4')
   loginInner.append(sectionInner)
 
   const header = $('<div>')

@@ -1,0 +1,25 @@
+#recoverSection {
+  height: 100vh;
+  min-width: 100vw;
+  background-image: url(../assets/images/login-background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recoverBackBtn {
+  background-color: #c38500;
+  color: white;
+}
+
+.recoverBackBtn:hover {
+  opacity: 0.85;
+  color: white;
+}
+
+.k-animation-container.k-animation-container-shown {
+  position: absolute;
+  top: 20%;
+}
