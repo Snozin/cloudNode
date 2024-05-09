@@ -15,6 +15,11 @@ export const translations = {
       captcha: 'Enter the captcha',
       submit: 'Submit',
       back: 'Back to Login',
+      msg: {
+        required: 'Should complete all fields',
+        emailFormat: 'Invalid email format',
+        captcha: 'Captcha not matching',
+      },
     },
   },
   es: {
@@ -33,6 +38,11 @@ export const translations = {
       captcha: 'Introduce el captcha',
       submit: 'Solicitar',
       back: 'Volver a Login',
+      msg: {
+        required: 'Debes rellenar todos los campos',
+        emailFormat: 'Formato de email no válido',
+        captcha: 'El captcha no coincide',
+      },
     },
   },
 }

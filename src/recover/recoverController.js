@@ -1,6 +1,8 @@
-import RecoverForm from '../components/recoverForm'
+import i18n from '../utils/useTranslate'
 import { router } from '../utils/useRouter'
+import RecoverForm from '../components/recoverForm'
 import useNotification from '../utils/useNotification'
+import Captcha from '../components/captcha'
 import './recoverStyles.css'
 
 const $ = kendo.jQuery
@@ -10,12 +12,18 @@ const RecoverController = () => {
   template.append(RecoverForm)
 
   const form = template.find('#recoverForm')
-  const validator = formValidator(form)
   const submitBtn = template.find('#recoverSubmit')
 
-  useNotification('Mensaje de tipo info', 'info')
-  useNotification('Mensaje de tipo warning', 'warning')
-  useNotification('Mensaje de tipo error', 'error')
+  const captchaRoot = template.find('#canvasWrapper')
+  const refreshBtn = template.find('#refreshCaptcha')
+  const inputCaptcha = template.find('#recoverCaptcha')
+  const { refreshCaptcha, validateCaptcha } = Captcha(captchaRoot)
+  const validator = formValidator(form, validateCaptcha)
+
+  refreshBtn.on('click', () => {
+    refreshCaptcha()
+    inputCaptcha.val('')
+  })
 
   form.on('change', (e) => {
     if (validator.validate()) {
@@ -39,25 +47,24 @@ const RecoverController = () => {
   return template
 }
 
-const formValidator = (form) =>
+const formValidator = (form, validateCaptcha) =>
   form
     .kendoValidator({
       messages: {
         checkCaptcha() {
-          console.log('mensaje de validar captcha!')
+          useNotification(`${i18n.t('recover.msg.captcha')}`, 'error')
         },
-        // checkCaptcha: 'Holiwi',
         required() {
-          // console.log('Validation error!!')
+          useNotification(`${i18n.t('recover.msg.required')}`, 'error')
         },
         email() {
-          console.log('email no válido!!')
+          useNotification(`${i18n.t('recover.msg.emailFormat')}`, 'error')
         },
       },
       rules: {
         checkCaptcha(input) {
           if (input.is('#recoverCaptcha')) {
-            return true
+            return validateCaptcha(input.val())
           }
           return true
         },

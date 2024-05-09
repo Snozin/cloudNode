@@ -23,3 +23,8 @@
   position: absolute;
   top: 20%;
 }
+
+#recoverForm {
+  padding: 15px;
+  background-color: rgba(211, 211, 211, 0.4);
+}
