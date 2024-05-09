@@ -1,36 +1,39 @@
 import { loginFetch, refreshFetch } from '../utils/useFetch'
 import useStorage from '../utils/useStorage'
 
-class LoginViewModel {
-  _vm = kendo.observable({
-    currentLang: useStorage.get('lang'),
-    status: -2, //status of load data (-2 = nothing, -1 = error, 0 = Loading, 1 = login success)
+function LoginViewModel() {
+  const _vm = kendo.observable({
+    lang: useStorage.get('lang'),
+    loginDone: null,
+    isLoading: false,
   })
 
-  constructor() {
-    if (!this._vm.get('currentLang')) {
-      const lang = 'es'
-      useStorage.set('lang', lang)
-      this._vm.set('currentLang', lang)
+  const getViewModel = () => {
+    return _vm
+  }
+
+  const login = async (credentials) => {
+    _vm.set('isLoading', true)
+    const token = await loginFetch(credentials)
+
+    if (token) {
+      useStorage.set('tokenJWT', token)
+      _vm.set('isLoading', false)
+      return true
     }
+    
+    _vm.set('isLoading', false)
+    return false
   }
 
-  getRef() {
-    return this._vm
-  }
-
-  login(credentials) {
-    loginFetch(credentials)
-  }
-
-  refreshToken(organization) {
+  const refreshToken = (organization) => {
     const url = import.meta.env.VITE_ENDPOINT_REFRESH
     const resp = refreshFetch({ url, payload: organization })
 
     return resp ? true : false
   }
+
+  return { getViewModel, login, refreshToken }
 }
 
-const LoginVM = new LoginViewModel()
-
-export { LoginVM }
+export default LoginViewModel

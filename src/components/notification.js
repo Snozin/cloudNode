@@ -11,10 +11,10 @@ const Notification = (msg, type) => {
     .kendoNotification({
       // animation: false,
       position: {
-        top: 80,
+        top: 100,
         right: 10,
       },
-      width: 200,
+      width: 300,
       height: 50,
       // autoHideAfter: 3000,
       // appendTo: wrapper,

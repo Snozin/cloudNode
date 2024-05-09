@@ -22,11 +22,12 @@ const loginFetch = async ({ user, password }) => {
     if (!resp.ok) {
       const message = `Login error. Status code:${resp.status}. ${resp.statusText}`
       console.error(message)
+      return false
     }
 
     const token = await resp.text()
-    useStorage.set('tokenJWT', token)
 
+    return token
     //Send Analytics Success
     // app.analytics.addAnalytics(
     //   'Login Success',

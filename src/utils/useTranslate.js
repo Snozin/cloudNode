@@ -7,7 +7,9 @@ const i18n = () => {
   const lang = useStorage.get('lang')
 
   if (!lang) {
-    ref.locale = 'es'
+    const lang = 'es' //Sets the default app language
+    ref.locale = lang
+    useStorage.set('lang', lang)
   } else {
     ref.locale = lang
   }

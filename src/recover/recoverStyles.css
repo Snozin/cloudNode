@@ -9,6 +9,11 @@
   justify-content: center;
 }
 
+#recover {
+  /* margin-top: -20%; */
+  /* max-width: 100%; */
+}
+
 .recoverBackBtn {
   background-color: #c38500;
   color: white;

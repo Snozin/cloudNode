@@ -1,14 +1,14 @@
 import i18n from '../utils/useTranslate'
 import { router } from '../utils/useRouter'
-import RecoverForm from '../components/recoverForm'
-import useNotification from '../utils/useNotification'
 import Captcha from '../components/captcha'
 import RecoverViewModel from './recoverViewModel'
+import RecoverForm from '../components/recoverForm'
+import useNotification from '../utils/useNotification'
 import './recoverStyles.css'
 
 const $ = kendo.jQuery
 
-const RecoverController = () => {
+function RecoverController() {
   const template = $(document.createDocumentFragment())
   template.append(RecoverForm)
 

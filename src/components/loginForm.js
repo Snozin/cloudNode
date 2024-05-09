@@ -61,6 +61,7 @@ const LoginForm = () => {
 
   const userInput = $('<input>')
   userInput.attr('id', 'loginEmail')
+  userInput.attr('required', '')
   userInput.attr('placeholder', `${i18n.t('login.user')}`)
   userInput.addClass('form-control')
   userGroup.append(userInput)
@@ -84,6 +85,7 @@ const LoginForm = () => {
   const passInput = $('<input>')
   passInput.attr('id', 'loginPass')
   passInput.attr('type', 'password')
+  passInput.attr('required', '')
   passInput.attr('placeholder', `${i18n.t('login.pass')}`)
   passInput.addClass('form-control ')
   passGroup.append(passInput)
@@ -93,7 +95,7 @@ const LoginForm = () => {
   formGroup.append(langGroup)
 
   const langInput = $('<input>')
-  langInput.attr('id', 'lang-select')
+  langInput.attr('id', 'langSelect')
   // langInput.kendoComboBox({
   //   dataTextField: 'text',
   //   dataValueField: 'value',
@@ -143,7 +145,7 @@ const LoginForm = () => {
   footerLink.append(footerLinkText)
 
   const footerLinkTextInner = $('<span>')
-  footerLinkTextInner.attr('id', 'remember-link')
+  footerLinkTextInner.attr('id', 'recoverLink')
   footerLinkTextInner.text(`${i18n.t('login.recover')}`)
   // footerLinkTextInner.text(`${i18n.t('login.send')}`)
   footerLinkText.append(footerLinkTextInner)
