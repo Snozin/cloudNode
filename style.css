@@ -59,3 +59,55 @@
   max-height: 100px;
   border-radius: 0.25rem;
 }
+
+/* TODO Reacer responsive para nuevos estilos */
+/*
+@media screen and (max-width: 576px) {
+  #captchaCanvas {
+    min-width: 449px;
+  }
+
+  #innerContainer {
+    min-width: 449px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  #captchaCanvas {
+    max-width: 240px;
+  }
+
+  #innerContainer {
+    max-width: 240px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #captchaCanvas {
+    min-width: 371px;
+  }
+  #innerContainer {
+    min-width: 371px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #captchaCanvas {
+    min-width: 290px;
+  }
+
+  #innerContainer {
+    min-width: 290px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #captchaCanvas {
+    min-width: 366px;
+  }
+
+  #innerContainer {
+    min-width: 366px;
+  }
+}
+*/

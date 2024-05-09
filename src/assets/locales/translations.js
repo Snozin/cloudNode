@@ -19,6 +19,8 @@ export const translations = {
         required: 'Should complete all fields',
         emailFormat: 'Invalid email format',
         captcha: 'Captcha not matching',
+        done: 'Request done. Will receive an email soon',
+        error: 'Bad request. Incorrect data'
       },
     },
   },
@@ -42,6 +44,8 @@ export const translations = {
         required: 'Debes rellenar todos los campos',
         emailFormat: 'Formato de email no válido',
         captcha: 'El captcha no coincide',
+        done: 'Solicitud realizada. En breve recibirás un email.',
+        error: 'Solicitud errónea. Datos incorrectos'
       },
     },
   },

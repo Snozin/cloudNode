@@ -68,6 +68,34 @@ const refreshFetch = async ({ payload = '' }) => {
   }
 }
 
+const recoverFetch = async (payload = '') => {
+  const url = import.meta.env.VITE_ENDPOINT_RECOVER
+  const fullURL = base + url
+
+  try {
+    const resp = await fetch(fullURL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+
+    if (!resp.ok) {
+      const message = `Fetching error. Status code:${resp.status}. ${resp.statusText}`
+      console.error(message)
+      return false
+    }
+
+    // const data = await resp.json()
+    // return data
+    return true
+  } catch (error) {
+    console.error(`Error fetching: ${error}`)
+  }
+}
+
 const useFetch = async ({ url, method = 'POST', payload = '' }) => {
   const fullURL = base + url
   try {
@@ -95,4 +123,4 @@ const useFetch = async ({ url, method = 'POST', payload = '' }) => {
   }
 }
 
-export { loginFetch, refreshFetch, useFetch }
+export { loginFetch, refreshFetch, recoverFetch, useFetch }

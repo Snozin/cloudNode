@@ -3,6 +3,7 @@ import { router } from '../utils/useRouter'
 import RecoverForm from '../components/recoverForm'
 import useNotification from '../utils/useNotification'
 import Captcha from '../components/captcha'
+import RecoverViewModel from './recoverViewModel'
 import './recoverStyles.css'
 
 const $ = kendo.jQuery
@@ -16,9 +17,14 @@ const RecoverController = () => {
 
   const captchaRoot = template.find('#canvasWrapper')
   const refreshBtn = template.find('#refreshCaptcha')
+  const backButton = template.find('#recoverBack')
   const inputCaptcha = template.find('#recoverCaptcha')
+
   const { refreshCaptcha, validateCaptcha } = Captcha(captchaRoot)
   const validator = formValidator(form, validateCaptcha)
+
+  const { getViewModel, recoverPassword } = RecoverViewModel()
+  const VM = getViewModel()
 
   refreshBtn.on('click', () => {
     refreshCaptcha()
@@ -27,7 +33,6 @@ const RecoverController = () => {
 
   form.on('change', (e) => {
     if (validator.validate()) {
-      console.log('\nValido ok \n')
       submitBtn.show()
     } else {
       submitBtn.hide()
@@ -36,12 +41,25 @@ const RecoverController = () => {
 
   form.on('submit', (e) => {
     e.preventDefault()
-    console.log('Click submit!')
+    const name = form.find('#recoverName').val()
+    const surname = form.find('#recoverSurname').val()
+    const email = form.find('#recoverEmail').val()
+    const doc = form.find('#recoverDocument').val()
+
+    recoverPassword(name, surname, email, doc)
   })
 
-  const backButton = template.find('#recoverBack')
   backButton.on('click', () => {
     router.navigate('/login')
+  })
+
+  VM.bind('change', () => {
+    if (VM.get('sended')) {
+      useNotification(`${i18n.t('recover.msg.done')}`, 'info')
+      router.navigate('/login')
+    } else {
+      useNotification(`${i18n.t('recover.msg.error')}`, 'error')
+    }
   })
 
   return template
