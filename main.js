@@ -33,7 +33,6 @@ router
 
   .on('/home', (match) => {
     // console.log(match)
-    console.log('Home!')
     render('Futura home page!!')
   })
   .on('*', () => {
