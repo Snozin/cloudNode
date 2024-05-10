@@ -1,6 +1,6 @@
 #loginSection {
   height: 100vh;
-  background-image: url(../assets/images/login-background.webp);
+  background-image: url(images/login-background.webp);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -19,7 +19,7 @@
 }
 
 .card-header h3 {
-  color: white
+  color: white;
 }
 
 .card-footer a {

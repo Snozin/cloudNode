@@ -1,9 +1,10 @@
-/* :root {
-  box-sizing: border-box;
+:root {
+  /* box-sizing: border-box;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
-} */
+  font-weight: 400; */
+  --global-lateral-padding: 15px;
+}
 
 /* body {
 margin: 0; 
@@ -13,7 +14,15 @@ min-width: 320px;
 min-height: 100vh;
 } */
 
-/* Spinner styles */
+h1 {
+  margin: 0;
+}
+
+#app {
+  /* padding: 0 var(--global-lateral-padding); */
+}
+
+/* Spinner */
 .loader {
   position: absolute;
   top: 40%;
@@ -37,77 +46,3 @@ min-height: 100vh;
     transform: rotate(360deg);
   }
 }
-
-/*TODO Decidir si se usa o no la caja para mover la notificación */
-
-/* #popupContainer {
-  position: absolute;
-  top: 10%;
-  right: 0;
-} */
-
-/* Captcha Styles */
-
-#captchaContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-#innerContainer {
-  max-height: 100px;
-  border-radius: 0.25rem;
-}
-
-/* TODO Reacer responsive para nuevos estilos */
-/*
-@media screen and (max-width: 576px) {
-  #captchaCanvas {
-    min-width: 449px;
-  }
-
-  #innerContainer {
-    min-width: 449px;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  #captchaCanvas {
-    max-width: 240px;
-  }
-
-  #innerContainer {
-    max-width: 240px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  #captchaCanvas {
-    min-width: 371px;
-  }
-  #innerContainer {
-    min-width: 371px;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  #captchaCanvas {
-    min-width: 290px;
-  }
-
-  #innerContainer {
-    min-width: 290px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  #captchaCanvas {
-    min-width: 366px;
-  }
-
-  #innerContainer {
-    min-width: 366px;
-  }
-}
-*/

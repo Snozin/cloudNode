@@ -1,7 +1,7 @@
 #recoverSection {
   height: 100vh;
   min-width: 100vw;
-  background-image: url(../assets/images/login-background.webp);
+  background-image: url(images/login-background.webp);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -33,3 +33,68 @@
   padding: 15px;
   background-color: rgba(211, 211, 211, 0.4);
 }
+
+/* Captcha */
+#captchaContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#innerContainer {
+  max-height: 100px;
+  border-radius: 0.25rem;
+}
+
+/* TODO Reacer responsive para nuevos estilos */
+/*
+@media screen and (max-width: 576px) {
+  #captchaCanvas {
+    min-width: 449px;
+  }
+
+  #innerContainer {
+    min-width: 449px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  #captchaCanvas {
+    max-width: 240px;
+  }
+
+  #innerContainer {
+    max-width: 240px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #captchaCanvas {
+    min-width: 371px;
+  }
+  #innerContainer {
+    min-width: 371px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #captchaCanvas {
+    min-width: 290px;
+  }
+
+  #innerContainer {
+    min-width: 290px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #captchaCanvas {
+    min-width: 366px;
+  }
+
+  #innerContainer {
+    min-width: 366px;
+  }
+}
+*/
