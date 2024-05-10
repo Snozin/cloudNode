@@ -1,5 +1,5 @@
 import useNotification from '../utils/useNotification'
-import LoginForm from '../components/loginForm'
+import LoginForm from './loginForm'
 import { getLangIndex } from '../utils/tools'
 import LoginViewModel from './loginViewModel'
 import useStorage from '../utils/useStorage'
