@@ -3,7 +3,9 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400; */
-  --global-lateral-padding: 15px;
+  /* --global-lateral-padding: 15px; */
+  --global-border-radius: 2%;
+  --main-bg-color: #010710;
 }
 
 /* body {
@@ -20,6 +22,11 @@ h1 {
 
 #app {
   /* padding: 0 var(--global-lateral-padding); */
+}
+
+/* Common styles */
+.hidden {
+  display: none;
 }
 
 /* Spinner */

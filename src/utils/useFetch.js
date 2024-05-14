@@ -102,15 +102,26 @@ const useFetch = async ({ url, method = 'POST', payload = '' }) => {
   try {
     const token = useStorage.get('tokenJWT')
 
-    const resp = await fetch(fullURL, {
-      method: method,
-      mode: 'cors',
-      headers: {
-        'Content-type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(payload),
-    })
+    const setConfig = () => {
+      const config = {
+        method: method,
+        mode: 'cors',
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      }
+
+      if (method.toUpperCase() !== 'GET') {
+        return {
+          ...config,
+          body: JSON.stringify(payload),
+        }
+      }
+      return config
+    }
+
+    const resp = await fetch(fullURL, setConfig())
 
     if (!resp.ok) {
       const message = `Fetching error. Status code:${resp.status}. ${resp.statusText}`
