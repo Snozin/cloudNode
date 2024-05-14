@@ -27,6 +27,11 @@ export const translations = {
         error: 'Bad request. Incorrect data',
       },
     },
+    menu: {
+      home: 'Home',
+      admTools: 'Admin tools',
+      controlPanel: 'Dashboard',
+    },
   },
   es: {
     login: {
@@ -55,6 +60,11 @@ export const translations = {
         done: 'Solicitud realizada. En breve recibirás un email.',
         error: 'Solicitud errónea. Datos incorrectos',
       },
+    },
+    menu: {
+      home: 'Home',
+      admTools: 'Herramientas administrativas',
+      controlPanel: 'Cuadro de mandos',
     },
   },
 }

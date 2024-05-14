@@ -45,8 +45,15 @@ router
 
   .on('/home', async (match) => {
     // console.log(match)
-    const { HomePage } = await import('./src/home/homeController')
-    render(HomePage)
+    // const { HomePage } = await import('./src/home/homeController')
+    const { Layout } = await import('./src/layout/layoutController')
+    // render(HomePage)
+    render(Layout(match.url))
+  })
+
+  .on('/dashboard', async (match) => {
+    const { Layout } = await import('./src/layout/layoutController')
+    render(Layout(match.url))
   })
 
   .on('*', () => {

@@ -1,0 +1,97 @@
+/* Header */
+.header-wrapper {
+  background-color: var(--main-bg-color);
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-self: center;
+  width: 160px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.logo {
+  object-fit: fill;
+}
+
+.title-wrapper {
+  display: flex;
+  align-self: center;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+/* Mneu */
+.menu-wrapper {
+  position: fixed;
+  top: 75px;
+  min-width: 300px;
+  min-height: 400px;
+  height: 50vh;
+  background-color: var(--main-bg-color);
+  border-radius: var(--global-border-radius);
+  padding: 0;
+
+  z-index: 9999;
+}
+
+.menu-navbar {
+  display: flex;
+}
+
+.menu-link {
+  /* border: 2px solid green; */
+  padding: 15px;
+  cursor: pointer;
+  /* color: red; */
+}
+
+.menu-link:hover {
+  background-color: #deb948;
+}
+
+/* Menu left */
+.menu-left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  outline: 2px solid green;
+}
+
+/* Menu right */
+.menu-right {
+  display: flex;
+  width: 100%;
+  outline: 2px solid yellow;
+}
+
+/* Sidebar */
+.sidebar-wrapper {
+  border: 1px solid red;
+}
+
+/* Main content */
+/* #contentWrapper { */
+
+/* } */
+
+/* Footer */
+.footer-wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
