@@ -26,12 +26,8 @@ function MainMenu() {
   linkHome.append(linkHomeWrap)
 
   const linkHomeIconWrap = $('<span>')
-  linkHomeIconWrap.addClass('home-link')
+  linkHomeIconWrap.addClass('home-icon')
   linkHomeWrap.append(linkHomeIconWrap)
-
-  const linkHomeIcon = $('<img>')
-  linkHomeIcon.attr('src', '')
-  linkHomeIconWrap.append(linkHomeIcon)
 
   const linkHomeText = $('<span>')
   linkHomeText.text(`${i18n.t('menu.home')}`)
@@ -45,12 +41,8 @@ function MainMenu() {
   linkTools.append(linkToolsWrap)
 
   const linkToolsIconWrap = $('<span>')
-  linkToolsIconWrap.addClass('tools-link')
+  linkToolsIconWrap.addClass('tools-icon')
   linkToolsWrap.append(linkToolsIconWrap)
-
-  const linkToolsIcon = $('<img>')
-  linkToolsIcon.attr('src', '')
-  linkToolsIconWrap.append(linkToolsIcon)
 
   const linkToolsText = $('<span>')
   linkToolsText.text(`${i18n.t('menu.admTools')}`)
@@ -64,12 +56,8 @@ function MainMenu() {
   linkControlPanel.append(linkControlPanelWrap)
 
   const linkControlPanelIconWrap = $('<span>')
-  linkControlPanelIconWrap.addClass('control-panel-link')
+  linkControlPanelIconWrap.addClass('control-panel-icon')
   linkControlPanelWrap.append(linkControlPanelIconWrap)
-
-  const linkControlPanelIcon = $('<img>')
-  linkControlPanelIcon.attr('scr', '')
-  linkControlPanelIconWrap.append(linkControlPanelIcon)
 
   const linkControlPanelText = $('<span>')
   linkControlPanelText.text(`${i18n.t('menu.controlPanel')}`)
@@ -79,6 +67,58 @@ function MainMenu() {
   const rightSide = $('<div>')
   rightSide.addClass('menu-right')
   menu.append(rightSide)
+
+  const userInfoWrapper = $('<div>')
+  userInfoWrapper.addClass('user-info-wrapper')
+  rightSide.append(userInfoWrapper)
+
+  const userPhotoWrapper = $('<div>')
+  userPhotoWrapper.addClass('user-photo-wrapper')
+  userInfoWrapper.append(userPhotoWrapper)
+
+  const userPhoto = $('<img>')
+  userPhoto.attr('src', '')
+  userPhoto.addClass('user-photo')
+  userPhotoWrapper.append(userPhoto)
+
+  const userInfoName = $('<span>')
+  userInfoName.addClass('user-text')
+  userInfoName.text('Holiwi gente linda')
+  userInfoWrapper.append(userInfoName)
+
+  // Implementar cambio de sociedad
+  const companyWrapper = $('<div>')
+  rightSide.append(companyWrapper)
+
+  const linkPassword = $('<a>')
+  rightSide.append(linkPassword)
+
+  const linkPasswordWrapper = $('<div>')
+  linkPasswordWrapper.addClass('menu-link')
+  linkPassword.append(linkPasswordWrapper)
+
+  const linkPasswordText = $('<span>')
+  linkPasswordText.text(`${i18n.t('menu.changePass')}`)
+  linkPasswordWrapper.append(linkPasswordText)
+
+  const linkPasswordIcon = $('<span>')
+  linkPasswordIcon.addClass('password-icon')
+  linkPasswordWrapper.append(linkPasswordIcon)
+
+  const linkLogout = $('<a>')
+  rightSide.append(linkLogout)
+
+  const linkLogoutWrapper = $('<div>')
+  linkLogoutWrapper.addClass('menu-link')
+  linkLogout.append(linkLogoutWrapper)
+
+  const linkLogoutText = $('<span>')
+  linkLogoutText.text(`${i18n.t('menu.logout')}`)
+  linkLogoutWrapper.append(linkLogoutText)
+
+  const linkLogoutIcon = $('<span>')
+  linkLogoutIcon.addClass('logout-icon')
+  linkLogoutWrapper.append(linkLogoutIcon)
 
   return menuWrapper
 }

@@ -15,8 +15,10 @@ function HomeController() {
   const VM = getViewModel()
 
   VM.bind('change', () => {
-    console.log('Cambia el estado!!!!')
-    console.log('Depues!: ', VM.get('userInfo.name'))
+    console.log('Cambia el estado: ', VM.get('userInfo'))
+    // console.log('Depues!: ', VM.get('userInfo.name'))
+    $('.user-photo').attr('src', `${VM.get('userInfo.photo')}`)
+    $('.user-text').text(`${VM.get('userInfo.name')}`)
   })
 
   getInfo()

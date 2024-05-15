@@ -4,8 +4,9 @@
   line-height: 1.5;
   font-weight: 400; */
   /* --global-lateral-padding: 15px; */
-  --global-border-radius: 2%;
+  --global-border-radius: 0.6em;
   --main-bg-color: #010710;
+  --dark-blue: #1b283c;
 }
 
 /* body {
@@ -18,6 +19,11 @@ min-height: 100vh;
 
 h1 {
   margin: 0;
+}
+
+a, a:hover {
+  color: inherit;
+  text-decoration: none;
 }
 
 #app {

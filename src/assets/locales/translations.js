@@ -31,6 +31,9 @@ export const translations = {
       home: 'Home',
       admTools: 'Admin tools',
       controlPanel: 'Dashboard',
+      changeCompany: 'Change society',
+      changePass: 'Change password',
+      logout: 'Logout',
     },
   },
   es: {
@@ -65,6 +68,9 @@ export const translations = {
       home: 'Home',
       admTools: 'Herramientas administrativas',
       controlPanel: 'Cuadro de mandos',
+      changeCompany: 'Cambio de sociedad',
+      changePass: 'Cambiar contraseña',
+      logout: 'Cerrar sesión',
     },
   },
 }

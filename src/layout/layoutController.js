@@ -32,25 +32,35 @@ function LayoutController(page) {
   const logo = template.find('.logo-wrapper')
   const menu = template.find('.menu-wrapper')
 
-  logo.on('click', () => {
+  logo.on('click', (event) => {
+    event.stopPropagation()
     // layoutState.set('dashboardShown', true)
     menu.toggleClass('hidden')
-    layoutState.set('homePageShown', !layoutState.get('homePageShown'))
+    // layoutState.set('homePageShown', !layoutState.get('homePageShown'))
   })
 
-  let detachedPage = null //Stores the page to render after change
+  menu.on('click', (event) => {
+    event.stopPropagation()
+  })
 
-  layoutState.bind('change', () => {
-    // console.log('Cambio!!', layoutState.get('homePageShown'))
-    // console.log('Cambio!!')
-
-    const homePage = $('#homePage')
-    if (layoutState.get('homePageShown') === true) {
-      $('#contentWrapper').append(detachedPage)
-    } else {
-      detachedPage = homePage.detach()
+  // Hide menu when click elsewere
+  $(document).on('click', () => {
+    const menu = $('.menu-wrapper')
+    if (!menu.hasClass('hidden')) {
+      menu.addClass('hidden')
     }
   })
+
+  // let detachedPage = null //Stores the page to render after change
+
+  // layoutState.bind('change', () => {
+  //   const homePage = $('#homePage')
+  //   if (layoutState.get('homePageShown') === true) {
+  //     $('#contentWrapper').append(detachedPage)
+  //   } else {
+  //     detachedPage = homePage.detach()
+  //   }
+  // })
 
   return template
 }
