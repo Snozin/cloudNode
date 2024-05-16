@@ -31,6 +31,35 @@ function LayoutController(page) {
   // Menu management
   const logo = template.find('.logo-wrapper')
   const menu = template.find('.menu-wrapper')
+  const companyLink = template.find('.company-inner')
+
+  companyLink.on('click', () => {
+    console.log('Click!')
+    $('.company-dropdown-wrapper').toggleClass('hidden')
+  })
+
+  const selectData = [
+    {
+      text: 'Equilibrha personas SL',
+      value: 'EQ',
+    },
+    {
+      text: 'Donte group',
+      value: 'DONTE',
+    },
+  ]
+
+  const prueba = (event) => {
+    console.log('Cambio companñia!')
+  }
+  template.find('#companySelect').kendoDropDownList({
+    // size: 'small',
+    dataSource: selectData,
+    dataTextField: 'text',
+    dataValueField: 'value',
+    index: 0,
+    change: prueba,
+  })
 
   logo.on('click', (event) => {
     event.stopPropagation()

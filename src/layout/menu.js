@@ -6,7 +6,7 @@ function MainMenu() {
 
   const menuWrapper = $('<div>')
   menuWrapper.addClass(
-    'menu-wrapper hidden col-5 col-sm-4 col-md-4 col-lg-4 col-xl-3'
+    'menu-wrapper hidden col-6 col-sm-6 col-md-5 col-lg-4 col-xl-4'
   )
 
   const menu = $('<navbar>')
@@ -88,7 +88,29 @@ function MainMenu() {
 
   // Implementar cambio de sociedad
   const companyWrapper = $('<div>')
+  companyWrapper.addClass('company-link')
   rightSide.append(companyWrapper)
+
+  const companyInner = $('<div>')
+  companyInner.addClass('company-inner')
+  companyWrapper.append(companyInner)
+
+  const companyText = $('<span>')
+  companyText.text(`${i18n.t('menu.changeCompany')}`)
+  companyInner.append(companyText)
+
+  const companyIcon = $('<span>')
+  companyIcon.addClass('company-icon')
+  companyInner.append(companyIcon)
+
+  const companyDropdownWrapper = $('<div>')
+  // companyDropdownWrapper.attr('id', 'companyDropdownWrapper')
+  companyDropdownWrapper.addClass('company-dropdown-wrapper hidden')
+  companyWrapper.append(companyDropdownWrapper)
+
+  const companyDropdown = $('<span>')
+  companyDropdown.attr('id', 'companySelect')
+  companyDropdownWrapper.append(companyDropdown)
 
   const linkPassword = $('<a>')
   rightSide.append(linkPassword)

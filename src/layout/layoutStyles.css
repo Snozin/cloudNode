@@ -44,6 +44,7 @@
   position: fixed;
   top: 75px;
   min-width: 300px;
+  width: 450px;
   min-height: 400px;
   height: 50vh;
   background-color: var(--main-bg-color);
@@ -123,7 +124,6 @@
   flex-direction: column;
   width: 100%;
   background-color: var(--dark-blue);
-  /* outline: 2px solid yellow; */
   border-top-right-radius: var(--global-border-radius);
   border-bottom-right-radius: var(--global-border-radius);
 }
@@ -133,12 +133,11 @@
 }
 
 .user-info-wrapper {
-  padding: 10px;
+  padding: 15px 10px 10px;
   display: flex;
   gap: 5px;
   flex-direction: column;
   align-items: center;
-  /* background-color: green; */
 }
 
 .user-photo-wrapper {
@@ -161,6 +160,52 @@
   font-size: 18px;
   line-height: 1.1;
   text-align: center;
+}
+
+.company-link {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* padding: 10px; */
+}
+
+.company-link:hover {
+  border-radius: var(--global-border-radius);
+  background-color: #deb948;
+}
+
+.company-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+}
+
+.company-icon {
+  width: var(--link-icon-size);
+  height: var(--link-icon-size);
+  flex-shrink: 0;
+  background: url(png/suitcase.png) no-repeat;
+  background-size: contain;
+}
+
+.company-link:hover .company-icon {
+  background: url(png/suitcase-alt.png) no-repeat;
+  background-size: contain;
+}
+
+.company-dropdown-wrapper {
+  width: calc(100% - 20px);
+  display: flex;
+  align-self: center;
+  margin-top: -10px;
+  padding-bottom: 10px;
+}
+
+.company-dropdown-wrapper.hidden {
+  display: none;
 }
 
 .password-icon {
