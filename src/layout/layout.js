@@ -4,10 +4,11 @@ import Sidebar from './sidebar'
 // import { HomePage } from '../home/homeController'
 import './layoutStyles.css'
 
-function Layout({ page, withSidebar }) {
+function Layout({ page, withSidebar, userInfo }) {
   const $ = kendo.jQuery
   const template = $(document.createDocumentFragment())
 
+  // console.log('Recibo: ', userInfo)
   template.append(Header)
 
   const contentWrapper = $('<div id="contentWrapper">')
@@ -37,6 +38,7 @@ const asyncRender = async (parent, page) => {
     const { HomePage } = await import('../home/homeController')
     parent.append(HomePage)
   }
+
   if (page === 'dashboard') {
     parent.append(page)
   }

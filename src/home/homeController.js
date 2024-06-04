@@ -21,7 +21,7 @@ function HomeController() {
     $('.user-text').text(`${VM.get('userInfo.name')}`)
   })
 
-  getInfo()
+  // getInfo()
   content.append(container)
 
   // return Layout({ content, withSidebar: true })

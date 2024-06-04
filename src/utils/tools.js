@@ -5,4 +5,13 @@ const getLangIndex = () => {
   return useStorage.get('lang') === 'es' ? 0 : 1
 }
 
-export { getLangIndex }
+// Fin the actual organization position in all organizations array
+const getOrgIndex = (mainOrg, orgs) => {
+  const condition = (org) => org.id === mainOrg
+
+  const pos = orgs.indexOf(orgs.find(condition))
+
+  return pos
+}
+
+export { getLangIndex, getOrgIndex }

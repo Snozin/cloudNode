@@ -39,9 +39,10 @@ const loginFetch = async ({ user, password }) => {
   }
 }
 
-const refreshFetch = async ({ payload = '' }) => {
+const refreshFetch = async (payload = '') => {
   const path = import.meta.env.VITE_ENDPOINT_REFRESH
   const url = base + path
+
   try {
     const token = useStorage.get('tokenJWT')
 
@@ -63,6 +64,7 @@ const refreshFetch = async ({ payload = '' }) => {
 
     const newToken = await resp.text()
     useStorage.set('tokenJWT', newToken)
+
     return true
   } catch (error) {
     console.error(`Error fetching: ${error}`)
@@ -124,14 +126,18 @@ const useFetch = async ({ url, method = 'POST', payload = '' }) => {
     const resp = await fetch(fullURL, setConfig())
 
     if (!resp.ok) {
-      const message = `Fetching error. Status code:${resp.status}. ${resp.statusText}`
-      console.error(message)
+      const error = new Error('Fetching error')
+      error.statusCode = resp.status
+
+      throw error
     }
 
     const data = await resp.json()
     return data
   } catch (error) {
-    console.error(`Error fetching: ${error}`)
+    error.statusCode ??= 666
+
+    throw error
   }
 }
 

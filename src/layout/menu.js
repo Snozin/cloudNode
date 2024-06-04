@@ -83,7 +83,7 @@ function MainMenu() {
 
   const userInfoName = $('<span>')
   userInfoName.addClass('user-text')
-  userInfoName.text('Holiwi gente linda')
+  userInfoName.text('Default user name')
   userInfoWrapper.append(userInfoName)
 
   // Implementar cambio de sociedad

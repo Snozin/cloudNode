@@ -8,27 +8,28 @@ function Header() {
 
   const header = $('<header>')
   header.addClass('header')
-  headerWrapper.append(header)
 
   const logoWrapper = $('<div>')
   logoWrapper.addClass('logo-wrapper')
-  header.append(logoWrapper)
 
   const logo = $('<img>')
+  logo.attr('id', 'company-logo')
   logo.attr('src', '/png/logo.png')
   logo.addClass('logo')
-  logoWrapper.append(logo)
 
   const titleWrapper = $('<div>')
   titleWrapper.addClass('title-wrapper')
-  header.append(titleWrapper)
 
   const title = $('<h1>')
-  title.text('Equilibrha Personas SL')
+  title.attr('id', 'company-name')
+  title.text('Default company')
   title.addClass('title')
-  titleWrapper.append(title)
 
-  headerWrapper.append(MainMenu)
+  logoWrapper.append(logo)
+  titleWrapper.append(title)
+  header.append(logoWrapper, titleWrapper)
+
+  headerWrapper.append(header, MainMenu())
 
   return headerWrapper
 }
