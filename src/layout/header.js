@@ -7,6 +7,7 @@ function Header() {
   headerWrapper.addClass('header-wrapper container-fluid')
 
   const header = $('<header>')
+  header.attr('id','header-wrapper')
   header.addClass('header')
 
   const logoWrapper = $('<div>')
@@ -29,7 +30,8 @@ function Header() {
   titleWrapper.append(title)
   header.append(logoWrapper, titleWrapper)
 
-  headerWrapper.append(header, MainMenu())
+  // headerWrapper.append(header, MainMenu())
+  headerWrapper.append(header)
 
   return headerWrapper
 }

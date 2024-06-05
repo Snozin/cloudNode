@@ -2,6 +2,7 @@ import Layout from './layout'
 import LayoutViewModel from './layoutViewModel'
 import './layoutStyles.css'
 import { getOrgIndex } from '../utils/tools'
+import { securedLeftMenu } from './menu'
 
 function LayoutController(page) {
   const $ = kendo.jQuery
@@ -12,8 +13,6 @@ function LayoutController(page) {
   })
 
   const template = $(document.createDocumentFragment())
-
-  console.log('page received: ', page)
 
   const { getViewModel, getUserInfo, changeSociety } = LayoutViewModel()
   const VM = getViewModel()
@@ -90,10 +89,10 @@ function LayoutController(page) {
       console.log('Ocurrió un error error: ', VM.get('errorStatus'))
     }
 
-    // Update UI withe new data loaded
+    // Update UI with new data loaded
     if (field === 'userInfo') {
       const data = VM.get('userInfo')
-      console.log('AllData: ', data)
+      console.log('Permisos: ', data.options)
 
       // Set header logo
       $('#company-logo').attr('src', `${data.urlLogo}`)
@@ -113,6 +112,20 @@ function LayoutController(page) {
       societyListData.select(
         getOrgIndex(data.connectedOrganization, data.organizations)
       )
+
+      // Empty left menu to regenerate using new security options
+      $('#menu-left').empty()
+
+      // Always create Home option
+      securedLeftMenu()
+
+      // Create menu options based on security options received
+      data.options.map((option) => {
+        // console.log('Seguridad: ', option)
+        // if (option === import.meta.env.VITE_DASHBOARD_SEC_MODULE) {
+        securedLeftMenu(option)
+        // }
+      })
     }
   })
 

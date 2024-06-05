@@ -1,7 +1,7 @@
-import Footer from './footer'
 import Header from './header'
+import MainMenu from './menu'
 import Sidebar from './sidebar'
-// import { HomePage } from '../home/homeController'
+import Footer from './footer'
 import './layoutStyles.css'
 
 function Layout({ page, withSidebar, userInfo }) {
@@ -10,6 +10,7 @@ function Layout({ page, withSidebar, userInfo }) {
 
   // console.log('Recibo: ', userInfo)
   template.append(Header)
+  template.find('#header-wrapper').append(MainMenu())
 
   const contentWrapper = $('<div id="contentWrapper">')
   contentWrapper.addClass('container-fluid')
