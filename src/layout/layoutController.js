@@ -92,7 +92,6 @@ function LayoutController(page) {
     // Update UI with new data loaded
     if (field === 'userInfo') {
       const data = VM.get('userInfo')
-      console.log('Permisos: ', data.options)
 
       // Set header logo
       $('#company-logo').attr('src', `${data.urlLogo}`)
@@ -121,10 +120,7 @@ function LayoutController(page) {
 
       // Create menu options based on security options received
       data.options.map((option) => {
-        // console.log('Seguridad: ', option)
-        // if (option === import.meta.env.VITE_DASHBOARD_SEC_MODULE) {
         securedLeftMenu(option)
-        // }
       })
     }
   })
