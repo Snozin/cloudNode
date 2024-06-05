@@ -40,47 +40,33 @@ function LayoutController(page) {
   const menu = template.find('.menu-wrapper')
   const societyLink = template.find('.company-inner')
 
-  // Society selector click handler
+  // Show dropdown society selector when click
   societyLink.on('click', () => {
-    console.log('Click!')
     $('.company-dropdown-wrapper').toggleClass('hidden')
   })
 
-  const selectData = [
-    {
-      text: 'Equilibrha personas SL',
-      value: 'EQ',
-    },
-    {
-      text: 'Donte group',
-      value: 'DONTE',
-    },
-  ]
-
-  const prueba = (event) => {
-    // console.log('Cambio compañia!', event.sender.value())
+  // Make API call to change society
+  const changeSocietyHandler = (event) => {
     const value = event.sender.value()
     changeSociety(value).then((result) => {
-      console.log('Despué!', result)
       getUserInfo()
     })
   }
 
-  const companyListData = template
+  // Create dropdown list to change societies
+  const societyListData = template
     .find('#companySelect')
     .kendoDropDownList({
       dataTextField: 'name',
       dataValueField: 'id',
-      change: prueba,
+      change: changeSocietyHandler,
     })
     .data('kendoDropDownList')
 
   // Header logo click handler
   logo.on('click', (event) => {
     event.stopPropagation()
-    // layoutState.set('dashboardShown', true)
     menu.toggleClass('hidden')
-    // layoutState.set('homePageShown', !layoutState.get('homePageShown'))
   })
 
   // Navbar menu click handler
@@ -95,17 +81,6 @@ function LayoutController(page) {
       menu.addClass('hidden')
     }
   })
-
-  // let detachedPage = null //Stores the page to render after change
-
-  // layoutState.bind('change', () => {
-  //   const homePage = $('#homePage')
-  //   if (layoutState.get('homePageShown') === true) {
-  //     $('#contentWrapper').append(detachedPage)
-  //   } else {
-  //     detachedPage = homePage.detach()
-  //   }
-  // })
 
   // Listen to VM changes
   VM.bind('change', ({ field }) => {
@@ -133,9 +108,9 @@ function LayoutController(page) {
       $('.user-text').text(`${data.name}`)
 
       // Set menu dropdownList data
-      companyListData.setDataSource(data.organizations)
-      // TODO cambiiar por el calculo de la organización en el indice correcto
-      companyListData.select(
+      societyListData.setDataSource(data.organizations)
+      // Set right index element in dropdown to select society
+      societyListData.select(
         getOrgIndex(data.connectedOrganization, data.organizations)
       )
     }
